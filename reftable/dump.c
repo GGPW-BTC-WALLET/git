@@ -75,7 +75,7 @@ static int dump_table(const char *tablename)
 static int compact_stack(const char *stackdir)
 {
 	struct reftable_stack *stack = NULL;
-	struct reftable_write_options cfg = {};
+	struct reftable_write_options cfg = { 0 };
 
 	int err = reftable_new_stack(&stack, stackdir, cfg);
 	if (err < 0)
@@ -94,7 +94,7 @@ done:
 static int dump_stack(const char *stackdir)
 {
 	struct reftable_stack *stack = NULL;
-	struct reftable_write_options cfg = {};
+	struct reftable_write_options cfg = { 0 };
 	struct reftable_iterator it = { 0 };
 	struct reftable_ref_record ref = { 0 };
 	struct reftable_log_record log = { 0 };
